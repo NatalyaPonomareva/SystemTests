@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-def test_user_authorization():
+def TestUserAuthorization():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     driver = webdriver.Chrome(options=options, \
@@ -25,7 +25,7 @@ def test_user_authorization():
     assert driver.current_url == "https://www.saucedemo.com/inventory.html"
 
 
-def test_empty_password():
+def TestEmptyPassword():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     driver = webdriver.Chrome(options=options, \
@@ -48,7 +48,7 @@ def test_empty_password():
     assert driver.current_url == excepted_url
 
 
-def test_empty_username():
+def TestEmptyUsername():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     driver = webdriver.Chrome(options=options, \
@@ -71,7 +71,7 @@ def test_empty_username():
     assert driver.current_url == excepted_url
 
 
-def test_add_jacket_to_the_shopcart():
+def TestAddJacketToTheShopcart():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     driver = webdriver.Chrome(options=options,\
@@ -117,7 +117,7 @@ def test_add_jacket_to_the_shopcart():
     assert item_description.text == expected_item_description
 
 
-def test_correct_items_count():
+def TestCorrectItemsCount():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     driver = webdriver.Chrome(options=options,\
@@ -153,7 +153,7 @@ def test_correct_items_count():
     assert item_count == expected_item_count
 
 
-def test_correct_total_sum():
+def TestCorrectTotalSum():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     driver = webdriver.Chrome(options=options,\
@@ -205,7 +205,7 @@ def test_correct_total_sum():
     assert total_sum == expected_total_sum
 
 
-def test_no_access_without_authorization():
+def TestNoAccessWithoutAuthorization():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     driver = webdriver.Chrome(options=options,\
@@ -221,7 +221,7 @@ def test_no_access_without_authorization():
                                 you are logged in."
 
 
-def test_invalid_password():
+def TestInvalidPassword():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     driver = webdriver.Chrome(options=options,\
@@ -246,7 +246,7 @@ def test_invalid_password():
                        do not match any user in this service"
 
 
-def test_sort_by_price_hilo():
+def TestSortingByPriceHiLo():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     driver = webdriver.Chrome(options=options,\
@@ -287,7 +287,7 @@ def test_sort_by_price_hilo():
     assert price_fourth >= price_fifth
     assert price_fifth >= price_sixth
 
-def test_sort_by_price_lohi():
+def TestSortingByPriceLoHi():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     driver = webdriver.Chrome(options=options,\
@@ -330,13 +330,13 @@ def test_sort_by_price_lohi():
 
 
 if __name__ == '__main__':
-    test_empty_password()
-    test_empty_username()
-    test_user_authorization()
-    test_add_jacket_to_the_shopcart()
-    test_correct_items_count()
-    test_correct_total_sum()
-    test_no_access_without_authorization()
-    test_invalid_password()
-    test_sort_by_price_hilo()
-    test_sort_by_price_lohi()
+    TestEmptyPassword()
+    TestEmptyUsername()
+    TestUserAuthorization()
+    TestAddJacketToTheShopcart()
+    TestCorrectItemsCount()
+    TestCorrectTotalSum()
+    TestNoAccessWithoutAuthorization()
+    TestInvalidPassword()
+    TestSortingByPriceHiLo()
+    TestSortingByPriceLoHi()
