@@ -173,7 +173,7 @@ def test_correct_total_sum():
 
     item_add_button = driver.find_element("xpath", '//*[@id="add-to-cart-sauce-labs-bike-light"]')
     item_add_button.click()
-    expected_total_sum = float(driver.find_element("xpath", //*[@id="inventory_container"]/div'
+    expected_total_sum = float(driver.find_element("xpath", '//*[@id="inventory_container"]/div'
                                   '/div[2]/div[2]/div[2]/div').text.replace('$', ''))
     item_add_button = driver.find_element("xpath", '//*[@id="add-to-cart-test.'
                                           'allthethings()-t-shirt-(red)"]')
