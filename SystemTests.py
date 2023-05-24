@@ -173,8 +173,8 @@ def test_correct_total_sum():
     item_add_button = driver.find_element("xpath", '//*[@id=\
                             "add-to-cart-sauce-labs-bike-light"]')
     item_add_button.click()
-    expected_total_sum = float(driver.find_element("xpath", '//*\
-         [@id="inventory_container"]/div/div[2]/div[2]/div[2]/div').text.replace('$', ''))
+    expected_total_sum = float(driver.find_element("xpath", '//*[@id=\
+      "inventory_container"]/div/div[2]/div[2]/div[2]/div').text.replace('$', ''))
     item_add_button = driver.find_element("xpath", '//*[@id="add-to-cart-test.\
                                           allthethings()-t-shirt-(red)"]')
     item_add_button.click()
@@ -200,8 +200,8 @@ def test_correct_total_sum():
     input_zip.send_keys("123")
     continue_button.click()
     assert driver.current_url == "https://www.saucedemo.com/checkout-step-two.html"
-    total_sum = float(driver.find_element("xpath", '//*[@id="\
-        checkout_summary_container"]/div/div[2]/div[6]').text.replace('Item total: $', ''))
+    total_sum = float(driver.find_element("xpath", '//*[@id="checkout_summary_\
+        container"]/div/div[2]/div[6]').text.replace('Item total: $', ''))
     assert total_sum == expected_total_sum
 
 
