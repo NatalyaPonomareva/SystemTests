@@ -34,7 +34,6 @@ def test_empty_password():
 
     # Поиск элементов и присваивание к переменным.
     input_username = driver.find_element("xpath", '//*[@id="user-name"]')
-    input_password = driver.find_element("xpath", '//*[@id="password"]')
     login_button = driver.find_element("xpath", '//*[@id="login-button"]')
 
     excepted_url = driver.current_url
@@ -171,15 +170,16 @@ def test_correct_total_sum():
     input_password.send_keys("secret_sauce")
     login_button.send_keys(Keys.RETURN)
 
-    item_add_button = driver.find_element("xpath", '//*[@id="add-to-cart-sauce-labs-bike-light"]')
+    item_add_button = driver.find_element("xpath", '//*[@id=\
+                            "add-to-cart-sauce-labs-bike-light"]')
     item_add_button.click()
-    expected_total_sum = float(driver.find_element("xpath", '//*[@id="inventory_container"]/div\
-                                  /div[2]/div[2]/div[2]/div').text.replace('$', ''))
+    expected_total_sum = float(driver.find_element("xpath", '//*\
+         [@id="inventory_container"]/div/div[2]/div[2]/div[2]/div').text.replace('$', ''))
     item_add_button = driver.find_element("xpath", '//*[@id="add-to-cart-test.\
                                           allthethings()-t-shirt-(red)"]')
     item_add_button.click()
     expected_total_sum = expected_total_sum + float(driver.\
-                                      find_element("xpath", '//*[@id="inventory_container"]/\
+                                 find_element("xpath", '//*[@id="inventory_container"]/\
                                   div/div[6]/div[2]/div[2]/div').text.replace('$', ''))
 
     shopping_cart = driver.find_element("xpath", '//*[@id="shopping_cart_container"]/a')
@@ -200,8 +200,8 @@ def test_correct_total_sum():
     input_zip.send_keys("123")
     continue_button.click()
     assert driver.current_url == "https://www.saucedemo.com/checkout-step-two.html"
-    total_sum = float(driver.find_element("xpath", '//*[@id="checkout_summary_container"]/\
-                                            div/div[2]/div[6]').text.replace('Item total: $', ''))
+    total_sum = float(driver.find_element("xpath", '//*[@id="\
+        checkout_summary_container"]/div/div[2]/div[6]').text.replace('Item total: $', ''))
     assert total_sum == expected_total_sum
 
 
@@ -270,17 +270,17 @@ def test_sort_by_price_hilo():
                                       div[2]/div/span/select/option[4]')
     sort_button.click()
     price_first = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                            div/div[1]/div[2]/div[2]/div').text.replace('$', ''))
+                                   div/div[1]/div[2]/div[2]/div').text.replace('$', ''))
     price_second = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                             div/div[2]/div[2]/div[2]/div').text.replace('$', ''))
+                                   div/div[2]/div[2]/div[2]/div').text.replace('$', ''))
     price_third = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                            div/div[3]/div[2]/div[2]/div').text.replace('$', ''))
+                                   div/div[3]/div[2]/div[2]/div').text.replace('$', ''))
     price_fourth = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                             div/div[4]/div[2]/div[2]/div').text.replace('$', ''))
+                                   div/div[4]/div[2]/div[2]/div').text.replace('$', ''))
     price_fifth = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                            div/div[5]/div[2]/div[2]/div').text.replace('$', ''))
+                                   div/div[5]/div[2]/div[2]/div').text.replace('$', ''))
     price_sixth = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                            div/div[6]/div[2]/div[2]/div').text.replace('$', ''))
+                                   div/div[6]/div[2]/div[2]/div').text.replace('$', ''))
     assert price_first >= price_second
     assert price_second >= price_third
     assert price_third >= price_fourth
@@ -311,17 +311,17 @@ def test_sort_by_price_lohi():
                                       div[2]/div/span/select/option[3]')
     sort_button.click()
     price_first = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                            div/div[1]/div[2]/div[2]/div').text.replace('$', ''))
+                                  div/div[1]/div[2]/div[2]/div').text.replace('$', ''))
     price_second = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                             div/div[2]/div[2]/div[2]/div').text.replace('$', ''))
+                                  div/div[2]/div[2]/div[2]/div').text.replace('$', ''))
     price_third = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                            div/div[3]/div[2]/div[2]/div').text.replace('$', ''))
+                                  div/div[3]/div[2]/div[2]/div').text.replace('$', ''))
     price_fourth = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                             div/div[4]/div[2]/div[2]/div').text.replace('$', ''))
+                                  div/div[4]/div[2]/div[2]/div').text.replace('$', ''))
     price_fifth = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                            div/div[5]/div[2]/div[2]/div').text.replace('$', ''))
+                                  div/div[5]/div[2]/div[2]/div').text.replace('$', ''))
     price_sixth = float(driver.find_element("xpath", '//*[@id="inventory_container"]/\
-                                            div/div[6]/div[2]/div[2]/div').text.replace('$', ''))
+                                  div/div[6]/div[2]/div[2]/div').text.replace('$', ''))
     assert price_first <= price_second
     assert price_second <= price_third
     assert price_third <= price_fourth
